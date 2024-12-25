@@ -5,13 +5,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'django-insecure-bih4jy6vzx#pwp^b7c-p=9s3t&z(#+2715b14-6l)cthqr&n27'
 
-DEBUG = True
+# Для того, чтобы можно было просматривать кастомные страницы с ошибками, ставим False
+DEBUG = False
 
 ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
 ]
 
+LOGOUT_REDIRECT_URL = None
 
 INSTALLED_APPS = [
     'blog.apps.BlogConfig',

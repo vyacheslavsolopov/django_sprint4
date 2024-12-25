@@ -5,6 +5,9 @@ from django.contrib.auth.forms import UserCreationForm
 from django.urls import include, path, reverse_lazy
 from django.views.generic.edit import CreateView
 
+
+path('auth/', include('django.contrib.auth.urls')), 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('pages/', include('pages.urls', namespace='pages')),
@@ -17,6 +20,7 @@ urlpatterns = [
         ),
         name='registration',
     ),
+    # Добавляем путь для аутентификации
     path('auth/', include('django.contrib.auth.urls')),
     path('', include('blog.urls', namespace='blog')),
 ]

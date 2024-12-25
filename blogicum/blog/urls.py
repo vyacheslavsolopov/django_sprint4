@@ -1,4 +1,5 @@
 from django.urls import include, path
+from django.contrib.auth.views import LogoutView
 
 from blog import views
 
@@ -68,5 +69,10 @@ urlpatterns = [
         'category/<slug:category_slug>/',
         views.CategoryListView.as_view(),
         name='category_posts'
-    )
+    ),
+    path(
+        'logout/',
+        LogoutView.as_view(template_name='registration/logged_out.html'),
+        name='logout'
+    ),
 ]
