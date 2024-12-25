@@ -6,7 +6,7 @@ from django.urls import include, path, reverse_lazy
 from django.views.generic.edit import CreateView
 
 
-path('auth/', include('django.contrib.auth.urls')), 
+path('auth/', include('django.contrib.auth.urls')),
 
 urlpatterns = [
     path('admin/', admin.site.urls),
