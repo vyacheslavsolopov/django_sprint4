@@ -46,7 +46,7 @@ class CategoryListView(CustomListMixin, ListView):
         context['category'] = self.category
         return context
 
-
+# Страница пользователя
 class ProfileView(CustomListMixin, ListView):
     """Рендеринг профиля пользователя."""
 

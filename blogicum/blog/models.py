@@ -78,6 +78,7 @@ class Post(PublishedModel):
         null=True,
         verbose_name='Категория',
     )
+    # Изображение в форме публикации
     image = models.ImageField(
         'Изображение',
         upload_to='post_images',

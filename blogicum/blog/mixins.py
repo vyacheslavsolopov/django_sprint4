@@ -9,6 +9,7 @@ PAGE_PAGINATOR = 10
 
 class CustomListMixin:
     model = Post
+    # Пагинация
     paginate_by = PAGE_PAGINATOR
 
     def get_queryset(self):

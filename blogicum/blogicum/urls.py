@@ -11,6 +11,7 @@ path('auth/', include('django.contrib.auth.urls')),
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('pages/', include('pages.urls', namespace='pages')),
+    # Работа с пользователями,
     path(
         'auth/registration/',
         CreateView.as_view(
@@ -31,6 +32,7 @@ if settings.DEBUG:
     urlpatterns += static(
         settings.MEDIA_URL, document_root=settings.MEDIA_ROOT
     )
-
+# Обработчики ошибок
 handler404 = 'pages.views.page_not_found'
 handler500 = 'pages.views.server_error'
+
