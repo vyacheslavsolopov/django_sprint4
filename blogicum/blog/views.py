@@ -145,7 +145,7 @@ class PostDetailView(DetailView):
 
     model = Post
     template_name = 'blog/detail.html'
-    pk_url_kwarg = 'pk'
+    pk_url_kwarg = 'post_pk'
 
     def get_object(self, queryset=None):
         object = super().get_object(
@@ -162,7 +162,7 @@ class PostDetailView(DetailView):
                     category__is_published=True,
                     is_published=True
                 ),
-                pk=self.kwargs['pk']
+                pk=self.kwargs['post_pk']
             )
         return object
 
@@ -185,13 +185,13 @@ class CommentCreateView(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         form.instance.author = self.request.user
         form.instance.post = get_object_or_404(
-            Post, pk=self.kwargs.get('post_id')
+            Post, pk=self.kwargs.get('post_pk')
         )
         return super().form_valid(form)
 
     def get_success_url(self) -> str:
         return reverse('blog:post_detail',
-                       kwargs={'pk': self.kwargs.get('post_id')})
+                       kwargs={'post_pk': self.kwargs.get('post_pk')})
 
 
 class CommentUpdateView(LoginRequiredMixin, CommentChangeMixin, UpdateView):

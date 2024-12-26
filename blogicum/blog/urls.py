@@ -7,7 +7,7 @@ app_name = 'blog'
 
 posts_urls = [
     path(
-        '<int:post_pk>/',  # Изменено с <int:pk> на <int:post_pk>
+        '<int:post_pk>/',
         views.PostDetailView.as_view(),
         name='post_detail'
     ),
@@ -17,27 +17,27 @@ posts_urls = [
         name='create_post'
     ),
     path(
-        '<int:post_pk>/edit/',  # Изменено с <int:post_id> на <int:post_pk>
+        '<int:post_pk>/edit/',
         views.PostUpdateView.as_view(),
         name='edit_post'
     ),
     path(
-        '<int:post_pk>/delete/',  # Изменено с <int:post_id> на <int:post_pk>
+        '<int:post_pk>/delete/',
         views.PostDeleteView.as_view(),
         name='delete_post'
     ),
     path(
-        '<int:post_pk>/comment/',  # Изменено с <int:post_id> на <int:post_pk>
+        '<int:post_pk>/comment/',
         views.CommentCreateView.as_view(),
         name='add_comment'
     ),
     path(
-        '<int:post_pk>/edit_comment/<int:comment_id>/',  # Изменено с <int:post_id> на <int:post_pk>
+        '<int:post_pk>/edit_comment/<int:comment_id>/',
         views.CommentUpdateView.as_view(),
         name='edit_comment'
     ),
     path(
-        '<int:post_pk>/delete_comment/<int:comment_id>/',  # Изменено с <int:post_id> на <int:post_pk>
+        '<int:post_pk>/delete_comment/<int:comment_id>/',
         views.CommentDeleteView.as_view(),
         name='delete_comment',
     ),

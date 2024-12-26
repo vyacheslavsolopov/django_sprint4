@@ -6,7 +6,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-bih4jy6vzx#pwp^b7c-p=9s3t&z(#+2715b14-6l)cthqr&n27'
 
 # Для того, чтобы можно было просматривать кастомные страницы с ошибками, ставим False
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = [
     'localhost',
