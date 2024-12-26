@@ -1,5 +1,4 @@
 from django.urls import include, path
-from django.contrib.auth.views import LogoutView
 
 from blog import views
 
@@ -8,7 +7,7 @@ app_name = 'blog'
 
 posts_urls = [
     path(
-        '<int:pk>/',
+        '<int:post_pk>/',  # Изменено с <int:pk> на <int:post_pk>
         views.PostDetailView.as_view(),
         name='post_detail'
     ),
@@ -18,27 +17,27 @@ posts_urls = [
         name='create_post'
     ),
     path(
-        '<int:post_id>/edit/',
+        '<int:post_pk>/edit/',  # Изменено с <int:post_id> на <int:post_pk>
         views.PostUpdateView.as_view(),
         name='edit_post'
     ),
     path(
-        '<int:post_id>/delete/',
+        '<int:post_pk>/delete/',  # Изменено с <int:post_id> на <int:post_pk>
         views.PostDeleteView.as_view(),
         name='delete_post'
     ),
     path(
-        '<int:post_id>/comment/',
+        '<int:post_pk>/comment/',  # Изменено с <int:post_id> на <int:post_pk>
         views.CommentCreateView.as_view(),
         name='add_comment'
     ),
     path(
-        '<int:post_id>/edit_comment/<int:comment_id>/',
+        '<int:post_pk>/edit_comment/<int:comment_id>/',  # Изменено с <int:post_id> на <int:post_pk>
         views.CommentUpdateView.as_view(),
         name='edit_comment'
     ),
     path(
-        '<int:post_id>/delete_comment/<int:comment_id>/',
+        '<int:post_pk>/delete_comment/<int:comment_id>/',  # Изменено с <int:post_id> на <int:post_pk>
         views.CommentDeleteView.as_view(),
         name='delete_comment',
     ),
@@ -69,10 +68,5 @@ urlpatterns = [
         'category/<slug:category_slug>/',
         views.CategoryListView.as_view(),
         name='category_posts'
-    ),
-    path(
-        'logout/',
-        LogoutView.as_view(template_name='registration/logged_out.html'),
-        name='logout'
-    ),
+    )
 ]
